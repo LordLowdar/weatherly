@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather</title>
+  </head>
+  <body class="mainContent">
+    <header>
+      <h1>Weather Dashboard</h1>
+    </header>
+    <main class="dashboard">
+      <section class="sideBar">
+        <header class="searchAreaHeader">
+       
+           <form class="searchField">
+           <h4 class="city"></h4>
+           <br />
+            <input
+              type="text"
+              id="searchCity"
+              name="searchCity"
+              value="London"
+            /><br />
+            <button id="search">Search</button>
+            
+          </form>
+          <!-- City list will populate here -->
+        </div>
+      </section>
+      <sectiion class="weatherDetails">
+        <div class="rightNow">
+          
+        </div>
+          <header class="cityDateIcon">
+            <h4 class="city"></h4>
+          </header>
+          <div class="details">
+            <div class="cityTemp"></div>
+             <img src="" alt="" class="cityIcon" />
+             <div class="cityDesc"></div>
+            <div class="cityWind"></div>
+            <div class="cityHumidity"></div>
+            
+        </div>
+      </sectiion>
+      <section class="fiveDay">
+        <header>
+          <h2>5-Day Forecast</h2>
+        </header>
+        <div class="forecast">
+          
+          <!-- Need to creat 5 dynamic boxes -->
+        </div>
+      </section>
+    </main>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
