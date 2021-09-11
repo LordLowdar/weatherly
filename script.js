@@ -18,6 +18,7 @@ fetchButton.addEventListener("click", function (e) {
   getApi();
   storeCity(searchCity.value);
   currentStats(searchCity.value);
+  displayCities();
 });
 
 function storeCity(searchCity) {
@@ -37,7 +38,8 @@ function fiveDay(lat, lon) {
         var fiveDetails = document.createElement("div");
         fiveDetails.classList.add("card");
         var date = document.createElement("p");
-        date.textContent = element.temp.day + "°";
+        var actualDate = new Date(element.dt * 1000).toDateString();
+        date.textContent = actualDate;
         document.querySelector(".forecast").appendChild(fiveDetails);
         fiveDetails.appendChild(date);
         var temp = document.createElement("p");
@@ -87,4 +89,10 @@ function currentStats() {
       startWind.textContent = data.wind.speed + "mph";
       document.querySelector(".cityWind").appendChild(startWind);
     });
+}
+
+function displayCities() {
+  var cities = document.createElement("h3");
+  cities.textContent = storedCities;
+  document.querySelector(".cityList").appendChild(cities);
 }
