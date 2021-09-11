@@ -72,7 +72,7 @@ function currentStats() {
     .then(function (data) {
       var startName = document.createElement("h4");
       startName.textContent = data.name;
-      document.querySelector(".city").appendChild(startName);
+      document.querySelector(".city").replaceWith();
       var startTemp = document.createElement("p");
       startTemp.textContent = data.main.temp + "°";
       document.querySelector(".cityTemp").appendChild(startTemp);
