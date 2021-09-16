@@ -26,6 +26,7 @@ function storeCity(searchCity) {
   localStorage.setItem("storeCity", JSON.stringify(storedCities));
 }
 function fiveDay(lat, lon) {
+  document.querySelector(".forecast").innerHTML = "";
   var url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=hourly,minutely&appid=d60338ffc6ff91a104e3347936e9f739`;
   fetch(url)
     .then(function (response) {
@@ -70,29 +71,21 @@ function currentStats() {
       return response.json();
     })
     .then(function (data) {
-      var startName = document.createElement("h4");
-      startName.textContent = data.name;
-      document.querySelector(".city").replaceWith();
-      var startTemp = document.createElement("p");
-      startTemp.textContent = data.main.temp + "°";
-      document.querySelector(".cityTemp").appendChild(startTemp);
-      var startDescription = document.createElement("p");
-      startDescription.textContent = data.weather[0].description;
-      document.querySelector(".cityDesc").appendChild(startDescription);
+      document.querySelector(".city").textContent = data.name;
+      document.querySelector(".cityTemp").textContent = data.main.temp + "°";
+      document.querySelector(".cityDesc").textContent =
+        data.weather[0].description;
       var startIcon = data.weather[0].icon;
       var iconUrl = "http://openweathermap.org/img/w/" + startIcon + ".png";
       document.querySelector(".cityIcon").src = iconUrl;
-      var startHumidity = document.createElement("p");
-      startHumidity.textContent = data.main.humidity + "% Humidity";
-      document.querySelector(".cityHumidity").appendChild(startHumidity);
-      var startWind = document.createElement("p");
-      startWind.textContent = data.wind.speed + "mph";
-      document.querySelector(".cityWind").appendChild(startWind);
+      document.querySelector(".cityHumidity").textContent =
+        data.main.humidity + "% Humidity";
+      document.querySelector(".cityWind").textContent = data.wind.speed + "mph";
     });
 }
 
 function displayCities() {
   var cities = document.createElement("h3");
   cities.textContent = storedCities;
-  document.querySelector(".cityList").appendChild(cities);
+  document.querySelector(".cityList").innerHTML = storedCities;
 }
